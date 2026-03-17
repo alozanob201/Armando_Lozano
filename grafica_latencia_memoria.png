@@ -1,0 +1,27 @@
+import matplotlib.pyplot as plt
+
+working_set_labels = ["4 KB", "32 KB", "256 KB", "8 MB", "64 MB"]
+working_set_kb = [4, 32, 256, 8192, 65536]   # para usar escala numérica
+latencia_ns = [3.481, 6.997, 7.972, 2.516, 8.493]
+
+plt.figure(figsize=(10, 6))
+plt.plot(working_set_kb, latencia_ns, marker='o')
+plt.xscale('log')
+
+# Etiquetas personalizadas en eje X
+plt.xticks(working_set_kb, working_set_labels)
+
+plt.title("Latencia de memoria vs tamaño del working set")
+plt.xlabel("Tamaño del working set")
+plt.ylabel("Latencia (ns)")
+plt.grid(True)
+
+plt.axhspan(1, 2, alpha=0.15, label="L1 cache típica: 1–2 ns")
+plt.axhspan(3, 10, alpha=0.10, label="L2 cache típica: 3–10 ns")
+plt.axhspan(10, 30, alpha=0.08, label="L3 cache típica: 10–30 ns")
+plt.axhspan(50, 100, alpha=0.05, label="RAM típica: 50–100 ns")
+
+plt.legend()
+plt.tight_layout()
+plt.savefig("grafica_latencia_memoria.png")
+plt.show()
