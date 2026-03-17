@@ -1,0 +1,7 @@
+Resultados lat_mem_rd
+
+4 KB   -> 3.481 ns
+32 KB  -> 6.997 ns
+256 KB -> 7.972 ns
+8 MB   -> 2.516 ns
+64 MB  -> 8.493 ns
